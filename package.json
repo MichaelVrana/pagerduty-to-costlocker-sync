@@ -1,11 +1,12 @@
 {
   "name": "pagerduty-to-cl",
   "version": "0.0.1",
-  "description": "",
+  "description": "Synchronizes PagerDuty oncalls into CostLocker",
   "main": "main.js",
   "type": "module",
+  "repository": "https://github.com/MichaelVrana/pagerduty-to-costlocker-sync",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node main.js"
   },
   "author": "Michael Vrána",
   "license": "MIT",
