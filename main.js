@@ -105,7 +105,7 @@ const getClWorklogEnd = (worklog) =>
   addSeconds(new Date(worklog.dt), worklog.in)
 
 const createCostlockerOncallWorklog = async ({ start, end }) => {
-  const response = await costlockerFetch({
+  await costlockerFetch({
     '5_Resource_Tracking_TrackingSave': {
       Tracking: {
         uuid: uuid(),
@@ -118,8 +118,6 @@ const createCostlockerOncallWorklog = async ({ start, end }) => {
       },
     },
   })
-
-  return
 }
 
 const now = new Date()
