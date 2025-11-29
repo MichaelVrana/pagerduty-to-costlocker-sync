@@ -12,3 +12,5 @@ npm start -- --pdApiKey "$YOUR_PERSONAL_PAGERDUTY_API_KEY" --clApiKey "$COSTLOCK
 ```
 
 Beware that the script first deletes all previous oncall worklogs in the given period to make sure the data between PD and CL are well synchronized.
+
+See more CLI options using the `--help` flag.
