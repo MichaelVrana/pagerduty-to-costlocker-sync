@@ -1,3 +1,16 @@
+import yargs from 'yargs'
+import { hideBin } from 'yargs/helpers'
+import { api as pdApi } from '@pagerduty/pdjs'
+import {
+  startOfMonth,
+  endOfMonth,
+  addSeconds,
+  isWithinInterval,
+} from 'date-fns'
+import { partition } from 'ramda'
+import { v4 as uuid } from 'uuid'
+import { formatInTimeZone } from 'date-fns-tz'
+
 const oncallsChunkSize = 100
 
 const fetchOncallChunk = async (offset) =>
@@ -108,19 +121,6 @@ const createCostlockerOncallWorklog = async ({ start, end }) => {
 
   return
 }
-
-import yargs from 'yargs'
-import { hideBin } from 'yargs/helpers'
-import { api as pdApi } from '@pagerduty/pdjs'
-import {
-  startOfMonth,
-  endOfMonth,
-  addSeconds,
-  isWithinInterval,
-} from 'date-fns'
-import { partition } from 'ramda'
-import { v4 as uuid } from 'uuid'
-import { formatInTimeZone } from 'date-fns-tz'
 
 const now = new Date()
 
