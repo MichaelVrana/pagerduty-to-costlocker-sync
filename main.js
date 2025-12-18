@@ -3,7 +3,7 @@ import { hideBin } from 'yargs/helpers'
 import { api as pdApi } from '@pagerduty/pdjs'
 import {
   startOfMonth,
-  endOfToday,
+  endOfDay,
   addSeconds,
   isWithinInterval,
 } from 'date-fns'
@@ -139,7 +139,6 @@ const args = await yargs(hideBin(process.argv))
       string: true,
       demandOption: true,
       description: 'CostLocker on-call project ID.',
-      default: '365065',
     },
     clActivityId: {
       string: true,
@@ -151,7 +150,6 @@ const args = await yargs(hideBin(process.argv))
       string: true,
       demandOption: true,
       description: 'CostLocker on-call task ID.',
-      default: '887309',
     },
     clApiKey: {
       string: true,
@@ -166,7 +164,7 @@ const args = await yargs(hideBin(process.argv))
     },
     until: {
       string: true,
-      default: endOfToday().toISOString(),
+      default: endOfDay(now).toISOString(),
       description:
         'ISO timestamp marking the beginning from which worklogs will be synchronized. Default is end of today.',
     },
