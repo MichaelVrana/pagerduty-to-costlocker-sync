@@ -3,7 +3,7 @@ import { hideBin } from 'yargs/helpers'
 import { api as pdApi } from '@pagerduty/pdjs'
 import {
   startOfMonth,
-  endOfMonth,
+  endOfToday,
   addSeconds,
   isWithinInterval,
 } from 'date-fns'
@@ -166,9 +166,9 @@ const args = await yargs(hideBin(process.argv))
     },
     until: {
       string: true,
-      default: endOfMonth(now).toISOString(),
+      default: endOfToday().toISOString(),
       description:
-        'ISO timestamp marking the beginning from which worklogs will be synchronized. Default is end of current month.',
+        'ISO timestamp marking the beginning from which worklogs will be synchronized. Default is end of today.',
     },
   })
   .parse()
